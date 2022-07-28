@@ -25,10 +25,6 @@ public class AdapterMain {
 
         IBankAdapter zBank = new ZBankCreditAdapter();
         BankCreditResponse zresponse = zBank.sendCreditRequest(request);
-        System.out.println("zBank approved > " + zresponse.isApproved() + "\n");
-
-        IBankAdapter yBank = new YBankCreditAdapter();
-        BankCreditResponse yresponse = yBank.sendCreditRequest(request);
 
         boolean zResult = true;
         try{
@@ -37,7 +33,13 @@ public class AdapterMain {
             zResult = false;
         }
 
-        System.out.println("yBank approved > " +zResult+ "\n");
+        System.out.println("zBank approved > " +zResult+ "\n");
+
+
+        IBankAdapter yBank = new YBankCreditAdapter();
+        BankCreditResponse yresponse = yBank.sendCreditRequest(request);
+        System.out.println("yBank approved > " + yresponse.isApproved() + "\n");
+
 
         if (xresponse.isApproved()) {
             System.out.println("xBank approved your credit, congratulations!!");
